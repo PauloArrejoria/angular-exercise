@@ -1,12 +1,15 @@
-<form [formGroup]="postForm" (ngSubmit)="onSubmit($event)">
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()">
   <label for="title">Title:</label>
   <input type="text" id="title" formControlName="Title">
+  <small>{{postForm.get('Title')?.errors | json}}</small>
 
   <label for="year">Year:</label>
   <input type="number" id="year" formControlName="Year">
+  <small>{{postForm.get('Year')?.errors | json}}</small>
 
   <label for="poster">Poster:</label>
   <input type="text" id="poster" formControlName="Poster">
+  <small>{{postForm.get('Poster')?.errors | json}}</small>
 
-  <button type="submit">Enviar</button>
+  <button>Submit</button>
 </form>

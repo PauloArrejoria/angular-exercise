@@ -10,12 +10,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
-  { path: '**', redirectTo: 'list', pathMatch: 'full' },
+  { path: '', redirectTo: 'list', pathMatch: 'full' },
   {
     path: 'list',
     component: PostListComponent,
   },
-  //{ path: '', redirectTo: 'post/list' },
+  {
+    path: 'create',
+    component: PostFormComponent,
+  },
 ];
 
 @NgModule({
