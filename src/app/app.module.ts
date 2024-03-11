@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { PostModule } from './post/post.module';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +16,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     AppRoutingModule,
     PostModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
   ],
   bootstrap: [AppComponent],
 })
