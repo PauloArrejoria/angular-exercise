@@ -1,22 +1,24 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { PostComponent } from '../post/post.component';
 import {
   loadPostsRequested,
   loadPostsSuccess,
   loadPostsFailure,
   refreshButtonClicked,
 } from './posts.actions';
+import { Post } from '../post.service';
 
 export const POSTS_STATE_KEY = 'posts';
 
 export interface PostState {
-  posts: PostComponent[];
+  posts: Post[];
   loaded: boolean;
+  deleted: boolean;
 }
 
 export const initialState: PostState = {
   posts: [],
   loaded: false,
+  deleted: false,
 };
 
 const postsReducer = createReducer(

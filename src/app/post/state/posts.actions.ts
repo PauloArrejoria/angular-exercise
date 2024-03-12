@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { PostComponent } from '../post/post.component';
+import { Post } from '../post.service';
 
 export const refreshButtonClicked = createAction(
   '[Post list] refresh button clicked'
@@ -7,7 +7,7 @@ export const refreshButtonClicked = createAction(
 
 export const loadPostsSuccess = createAction(
   '[Post list] load posts success',
-  props<{ posts: PostComponent[] }>()
+  props<{ posts: Post[] }>()
 );
 
 export const loadPostsFailure = createAction(
@@ -16,6 +16,15 @@ export const loadPostsFailure = createAction(
 );
 
 export const loadPostsRequested = createAction(
-  '[Post list] load post requested',
-  props<{ error: any }>()
+  '[Post list] load post requested'
+  //props<{ error: any }>()
+);
+
+export const deletePostRequested = createAction(
+  '[Post delete] delete post requested'
+);
+
+export const deletePostsSuccess = createAction(
+  '[Post] delete posts success',
+  props<{ posts: Post }>()
 );

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PostService, Result } from '../post.service';
-import { Store, select } from '@ngrx/store';
+import { Post, PostService } from '../post.service';
+import { Store } from '@ngrx/store';
 import {
   loadPostsRequested,
   refreshButtonClicked,
@@ -14,15 +14,13 @@ import { getPosts, getPostsLoaded } from '../state/posts.selectors';
   styleUrl: './post-list.component.css',
 })
 export class PostListComponent implements OnInit {
-  public posts$: Observable<Result>;
+  public posts$: Observable<Post[]> = this.store.select(getPosts);
   public postsLoaded$: Observable<boolean> = this.store.select(getPostsLoaded);
 
-  constructor(private postService: PostService, private store: Store) {
-    this.posts$ = this.postService.getAllPosts();
-  }
+  constructor(private postService: PostService, private store: Store) {}
 
   ngOnInit() {
-    //this.store.dispatch(loadPostsRequested());
+    this.store.dispatch(loadPostsRequested());
   }
 
   refreshPosts() {
