@@ -2,7 +2,7 @@
   <ng-container *ngIf="posts$ | async as result">
     <ul>
       <li *ngFor="let post of result">
-      <app-post [post]="post" ></app-post>
+      <app-post [post]="post"></app-post>
       </li>
 
     </ul>

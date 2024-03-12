@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Post, PostService } from '../post.service';
 import { Store } from '@ngrx/store';
 import {
+  deleteButtonClicked,
   loadPostsRequested,
   refreshButtonClicked,
 } from '../state/posts.actions';
@@ -26,4 +27,8 @@ export class PostListComponent implements OnInit {
   refreshPosts() {
     this.store.dispatch(refreshButtonClicked());
   }
+
+  // deletePost(post: Post) {
+  //   this.store.dispatch(deleteButtonClicked({ posts: post }));
+  // }
 }

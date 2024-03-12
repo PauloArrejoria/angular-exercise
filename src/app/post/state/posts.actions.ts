@@ -17,12 +17,14 @@ export const loadPostsFailure = createAction(
 
 export const loadPostsRequested = createAction(
   '[Post list] load post requested'
-  //props<{ error: any }>()
 );
 
-export const deletePostRequested = createAction(
-  '[Post delete] delete post requested'
+export const deleteButtonClicked = createAction(
+  '[Post] delete button clicked',
+  props<{ posts: Post }>()
 );
+
+export const deletePostRequested = createAction('[Post] delete post requested');
 
 export const deletePostsSuccess = createAction(
   '[Post] delete posts success',

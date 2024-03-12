@@ -4,7 +4,6 @@ import { map, switchMap } from 'rxjs/operators';
 import { PostService } from '../post.service';
 import {
   loadPostsRequested,
-  loadPostsFailure,
   loadPostsSuccess,
   refreshButtonClicked,
 } from './posts.actions';
@@ -19,9 +18,8 @@ export class PostsEffects {
           .getAllPosts()
           .pipe(map((results) => loadPostsSuccess({ posts: results.Search })))
       )
-      // catchError(error => loadPostsFailure({ error }))
     )
   );
-
+  //deletePost$ = createEffect();
   constructor(private actions$: Actions, private postsService: PostService) {}
 }
