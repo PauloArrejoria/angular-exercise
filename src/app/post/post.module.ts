@@ -29,7 +29,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [PostComponent, PostListComponent, PostFormComponent],
+  declarations: [],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -37,6 +37,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature(POSTS_STATE_KEY, postsReducer),
     EffectsModule.forFeature([PostsEffects]),
+    PostComponent,
+    PostListComponent,
+    PostFormComponent,
   ],
   exports: [PostComponent, PostListComponent, PostFormComponent],
   providers: [

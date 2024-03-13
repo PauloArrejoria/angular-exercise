@@ -2,8 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Post } from '../post.service';
 import { Store } from '@ngrx/store';
 import { deleteButtonClicked } from '../state/posts.actions';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule],
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrl: './post.component.css',

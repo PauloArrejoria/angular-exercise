@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post, PostService } from '../post.service';
 import { Store } from '@ngrx/store';
+import { CommonModule } from '@angular/common';
 import {
   loadPostsRequested,
   refreshButtonClicked,
@@ -11,8 +12,11 @@ import {
   getPosts,
   getPostsLoaded,
 } from '../state/posts.selectors';
+import { PostComponent } from '../post/post.component';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, PostComponent],
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.css',
