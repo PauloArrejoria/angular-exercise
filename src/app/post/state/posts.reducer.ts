@@ -5,8 +5,6 @@ import {
   loadPostsFailure,
   refreshButtonClicked,
   deleteButtonClicked,
-  deletePostRequested,
-  deletePostsSuccess,
 } from './posts.actions';
 import { Post } from '../post.service';
 
@@ -20,14 +18,6 @@ export interface PostState {
 export const initialState: PostState = {
   posts: [],
   loaded: false,
-};
-
-export interface IndivPostState {
-  deleted: boolean;
-}
-
-export const indivInitialState: IndivPostState = {
-  deleted: false,
 };
 
 const postsReducer = createReducer(
@@ -65,16 +55,6 @@ const postsReducer = createReducer(
       posts: newPosts,
     };
   })
-  // on(deletePostRequested, (state) => ({
-  //   ...state,
-  //   deleted: false,
-  // })),
-  // on(deletePostsSuccess, (state) => {
-  //   return {
-  //     ...state,
-  //     deleted: true,
-  //   };
-  // })
 );
 
 export function reducer(state: PostState, action: Action) {

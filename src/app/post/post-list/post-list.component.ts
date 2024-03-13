@@ -3,11 +3,14 @@ import { Observable } from 'rxjs';
 import { Post, PostService } from '../post.service';
 import { Store } from '@ngrx/store';
 import {
-  deleteButtonClicked,
   loadPostsRequested,
   refreshButtonClicked,
 } from '../state/posts.actions';
-import { getPosts, getPostsLoaded } from '../state/posts.selectors';
+import {
+  getPostCount,
+  getPosts,
+  getPostsLoaded,
+} from '../state/posts.selectors';
 
 @Component({
   selector: 'app-post-list',
@@ -17,6 +20,7 @@ import { getPosts, getPostsLoaded } from '../state/posts.selectors';
 export class PostListComponent implements OnInit {
   public posts$: Observable<Post[]> = this.store.select(getPosts);
   public postsLoaded$: Observable<boolean> = this.store.select(getPostsLoaded);
+  public postsCount$ = this.store.select(getPostCount);
 
   constructor(private postService: PostService, private store: Store) {}
 

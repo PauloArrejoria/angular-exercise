@@ -43,7 +43,7 @@ const routes: Routes = [
     PostService,
     {
       provide: POST_SERVICE_KEY,
-      useValue: 'https://www.omdbapi.com/?s=harry&p=1&apikey=3f24f265',
+      useValue: 'https://www.omdbapi.com/?s=harry+potter&p=1&apikey=3f24f265',
     },
   ],
 })

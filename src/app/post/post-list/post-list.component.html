@@ -1,4 +1,6 @@
 <div>
+  <h2>Posts loaded: {{postsCount$ | async}}
+  </h2>
   <ng-container *ngIf="posts$ | async as result">
     <ul>
       <li *ngFor="let post of result">
