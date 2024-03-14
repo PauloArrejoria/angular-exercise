@@ -13,6 +13,7 @@ import {
   getPostsLoaded,
 } from '../state/posts.selectors';
 import { PostComponent } from '../post/post.component';
+import { PostListComponentStore } from './post-list.component.store';
 
 @Component({
   standalone: true,
@@ -20,13 +21,18 @@ import { PostComponent } from '../post/post.component';
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.css',
+  providers: [PostListComponentStore],
 })
 export class PostListComponent implements OnInit {
-  public posts$: Observable<Post[]> = this.store.select(getPosts);
+  public posts$: Observable<Post[]> = this.componentStore.getPosts$;
   public postsLoaded$: Observable<boolean> = this.store.select(getPostsLoaded);
   public postsCount$ = this.store.select(getPostCount);
 
-  constructor(private postService: PostService, private store: Store) {}
+  constructor(
+    private postService: PostService,
+    private store: Store,
+    public componentStore: PostListComponentStore
+  ) {}
 
   ngOnInit() {
     this.store.dispatch(loadPostsRequested());
