@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Post } from '../post.service';
 import { Store } from '@ngrx/store';
-import { deleteButtonClicked } from '../state/posts.actions';
+import { deletePostRequested } from '../post-list/post-list.component.store';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -13,15 +13,10 @@ import { CommonModule } from '@angular/common';
 })
 export class PostComponent {
   @Input() post: Post = {};
-  isShowMore: boolean = false;
 
   constructor(private store: Store) {}
 
-  onClickShow() {
-    this.isShowMore = !this.isShowMore;
-  }
-
   deletePost() {
-    this.store.dispatch(deleteButtonClicked({ posts: this.post }));
+    this.store.dispatch(deletePostRequested({ post: this.post }));
   }
 }
